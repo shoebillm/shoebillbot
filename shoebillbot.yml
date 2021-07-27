@@ -1,0 +1,25 @@
+name: 'shoebillbot'
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipykernel
+  - ipython
+  - random
+  - asyncio
+  - urllib3
+  - certifi
+  - json
+  - aiohttp
+  - pytz
+  - datetime
+  - discord
+  - bs4
+  - alpha_vantage
+  - matplotlib
+  - pandas
+  
+
+  - pip
+  - pip:
+      
