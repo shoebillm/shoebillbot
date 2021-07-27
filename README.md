@@ -10,15 +10,19 @@ When clients send certain keywords, the bot will randomly autoreply with pre-def
 
 ### Crypto Currency Price
 
-Input `!crypto <currency abbreviation>` in the discord server chat channel, and the bot will return the current price of the input crypto currency and the change.
+Input `!crypto <currency abbreviation> <amount>` in the discord server chat channel, and the bot will return the current total price of the input crypto currency and the change.
 
 ### Stock Price & Trend
 
-Input `!stock <stock abbreviation>` in the discord server chat channel, and the bot will return the current price of the input stock and the trend line graph for the day.
+Input `!stock <stock abbreviation> <date>` in the discord server chat channel, and the bot will return the current price of the input stock and the trend line graph for the input date.
 
 ### Time Conversion
 
 Input `!time <city name>` in the discord server chat channel, and the bot will return the current time of the input major city.
+
+### Welcome Message
+
+Upon the joining of any new members, the bot will send a direct welcome message to the client and the message content can be customized.
 
 
 ## Installation
