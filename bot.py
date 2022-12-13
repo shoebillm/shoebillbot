@@ -9,6 +9,9 @@ import json
 import discord
 import youtube_dl
 import pytz 
+from youtube_search import YoutubeSearch
+import requests
+
 from datetime import datetime
 from discord import Game
 from discord.ext.commands import Bot
@@ -21,10 +24,11 @@ import matplotlib.dates as mdates
 
 
 BOT_PREFIX = ("!")
-TOKEN = "you discord token"  # Get at discordapp.com/developers/applications/me
+# TOKEN = ""  # Get at discordapp.com/developers/applications/me
 
 intents = discord.Intents().all()
 client = commands.Bot(command_prefix="!", intents=intents)
+# TENOR_API_KEY = ''
 
 def get_crypto(currency):
     global ERROR_READ
@@ -118,7 +122,7 @@ async def features(ctx):
 async def piggy(ctx):
     message = "Oink Oink 🐷🐷"
     await ctx.send(message)
-    await ctx.send(file=discord.File('img/piggy.png'))
+    await ctx.send(file=discord.File('piggy.png'))
 
     
 # get the current cryptocoin price in USD and the change and get the total price of given crypto currency and number of coins
@@ -167,11 +171,51 @@ async def time(ctx, query="Vancouver"):
     await ctx.send(message)
 
     
+
+@client.command(pass_context=True)
+async def meme(ctx, query):
+    print(ctx.message.content[6:])
+    
+    lmt = 1
+    try:
+        response = requests.get("https://g.tenor.com/v2/search?q=%s&key=%s&limit=%s&media_formats=gif" % (ctx.message.content[6:], TENOR_API_KEY, lmt))
+        if response.status_code == 200:
+            
+            # load the GIFs using the urls for the smaller GIF sizes
+            gif = json.loads(response.content)['results'][0]['media_formats']['mediumgif']['url']
+
+            await ctx.send(gif)
+
+        else:
+            return
+        
+    except:
+        print("An error occurred in Tenor API!")
+        return 
+
+
+
+@client.command(pass_context=True)
+async def video(ctx, query):
+    print(ctx.message.content[7:])
+
+    try: 
+        results = YoutubeSearch(ctx.message.content[7:], max_results=1).to_json()
+        url_suffix = json.loads(results)['videos'][0]['url_suffix']
+        await ctx.send(f"https://www.youtube.com{url_suffix}")
+    
+    except:
+        print("An error occurred in YouTube searching!")
+        return 
+
+
+    
 @client.event
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
         f"Hi {member.name}, welcome to Shoebill's server! 你终于了来啦我等你很久啦！")
+
 
 
 client.run(TOKEN)
