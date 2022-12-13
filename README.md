@@ -2,6 +2,10 @@
 ## A discord server bot
 ### Author: Mitchie Zhao (@shoebillm)
 
+## Invite Shoebillbot to your server
+[Shoebillbot Discord](https://discordapp.com/oauth2/authorize?&client_id=836236161801388083&scope=bot)
+
+
 ## Functions 
 
 ### Autoreply
@@ -23,6 +27,17 @@ Input `!stock <stock abbreviation> <date>` in the discord server chat channel, a
 Input `!time <city name>` in the discord server chat channel, and the bot will return the current time of the input major city.
 
 ![](img/1.png)
+
+
+### Meme Searching
+
+Input `!meme <meme keywords>` in the discord server chat channel, and the bot will return the top meme result from www.tenor.com.
+
+
+### YouTube Video Searching
+
+Input `!video <video keywords>` in the discord server chat channel, and the bot will return the top video result from www.youtube.com.
+
 
 ### Welcome Message
 

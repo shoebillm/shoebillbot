@@ -18,6 +18,10 @@ dependencies:
   - alpha_vantage
   - matplotlib
   - pandas
+  - youtubedl
+  - youtube_search
+  - revChatGPT
+  - requests
   
 
   - pip
