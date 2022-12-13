@@ -21,6 +21,7 @@ dependencies:
   - youtubedl
   - youtube_search
   - revChatGPT
+  - requests
   
 
   - pip
